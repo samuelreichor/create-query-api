@@ -1,6 +1,6 @@
 {
   "name": "create-query-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A CLI tool for quickly starting a Query API project",
   "author": "Samuel Reichör",
   "license": "MIT",
