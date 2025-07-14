@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
 import { defineCommand, runMain } from 'citty'
-import { intro, outro, text, log, select, spinner } from '@clack/prompts'
+import { intro, outro, text, log, select, spinner, note } from '@clack/prompts'
+import color from 'picocolors';
 import path from 'node:path'
 import fs from 'node:fs'
+import { setTimeout } from 'node:timers/promises';
 import { templates } from './templates'
 import { download } from './file-utils'
 
@@ -32,7 +34,7 @@ const main = defineCommand({
     if (args.dryRun) {
       log.info('Dry run enabled. No changes will be made.')
     }
-    intro('Welcome to create-query-api!')
+    intro(`${color.cyan('Thanks for trying out the Query API!')}`)
 
     let projectName = args.projectName
     if (!projectName) {
@@ -67,20 +69,18 @@ const main = defineCommand({
 
     const selectedTemplate = templates.find(t => t.value === selectedTemplateValue)!
 
-    if (args.dryRun) {
-      log.info(`Project directory would be created at: ${targetDir}`)
-      log.info(`Template to be used: ${selectedTemplate.name}`)
-      log.info('Files and folders to be copied from the template are not listed in dry-run mode.')
-      outro('Dry run complete.')
-      return
-    }
-
     const s = spinner()
-    s.start(`Downloading template "${selectedTemplate.name}"...`)
-    await download(selectedTemplate.repositoryLink, selectedTemplate.branch, targetDir)
+    s.start(`Downloading template "https://github.com/${selectedTemplate.repositoryLink}#${selectedTemplate.branch}"...`)
+    if (args.dryRun) {
+      await setTimeout(1000);
+    } else {
+      await download(selectedTemplate.repositoryLink, selectedTemplate.branch, targetDir)
+    }
     s.stop('Template downloaded successfully!')
 
-    outro('Done!')
+    const nextSteps = `1. Navigate to your project: ${color.cyan(`cd ./${projectName}`)}\n2. Run the setup script: ${color.cyan('./scripts/setup.sh')}`
+    note(nextSteps, 'Next Steps')
+    outro(`Problems? ${color.underline(color.cyan('https://github.com/samuelreichor/create-query-api/issues/new'))}`)
   },
 })
 
