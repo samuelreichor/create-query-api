@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.1
+
+### Patch Changes
+
+- 56b0ba1: Fix npx error and add readme
+
 ## 0.1.0
 
 ### Minor Changes
