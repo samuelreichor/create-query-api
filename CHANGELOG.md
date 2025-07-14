@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.2
+
+### Patch Changes
+
+- 3a267a9: Prettify the cli
+
 ## 0.1.1
 
 ### Patch Changes
