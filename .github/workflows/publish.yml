@@ -13,14 +13,14 @@ permissions:
 
 jobs:
   publish:
+    name: Publish Package to NPM
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # Removed pnpm setup, using npm
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 20.x
           cache: "npm"
 
       - run: npm ci
