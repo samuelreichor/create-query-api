@@ -70,13 +70,20 @@ const main = defineCommand({
     const selectedTemplate = templates.find(t => t.value === selectedTemplateValue)!
 
     const s = spinner()
-    s.start(`Downloading template "https://github.com/${selectedTemplate.repositoryLink}#${selectedTemplate.branch}"...`)
+    s.start(`Downloading template for '${selectedTemplate.name}'...`)
     if (args.dryRun) {
       await setTimeout(1000);
     } else {
       await download(selectedTemplate.repositoryLink, selectedTemplate.branch, targetDir)
+      // Set project name in .ddev/config.yaml
+      const ddevConfigPath = path.join(targetDir, '.ddev', 'config.yaml');
+      if (fs.existsSync(ddevConfigPath)) {
+        let configContent = fs.readFileSync(ddevConfigPath, 'utf8');
+        configContent = configContent.replace(/^name:.*$/m, `name: ${projectName}`);
+        fs.writeFileSync(ddevConfigPath, configContent, 'utf8');
+      }
     }
-    s.stop('Template downloaded successfully!')
+    s.stop(`Template ${selectedTemplate.name} downloaded successfully!`)
 
     const nextSteps = `1. Navigate to your project: ${color.cyan(`cd ./${projectName}`)}\n2. Run the setup script: ${color.cyan('./scripts/setup.sh')}`
     note(nextSteps, 'Next Steps')
