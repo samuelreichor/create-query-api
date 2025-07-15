@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.3
+
+### Patch Changes
+
+- b9538b7: Change ddev name after download to projectName
+
 ## 0.1.2
 
 ### Patch Changes
