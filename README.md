@@ -12,17 +12,16 @@ npx create-query-api <my-project-name>
 
 ## CLI Options
 
-
 ### `projectName`
 The name of the project to be created. Can be passed as a positional argument or will be prompted interactively.
 
 ### `--template <template>`
 Choose a template for the new project. Possible values are:
 
-- `vueJs` - Vue Starter
+- `vue` - Vue Starter
 - `nuxt` - Nuxt Starter
-- `reactJs` - React Vite Starter
-- `nextJs` - Next.js Starter
+- `react-vite` - React Vite Starter
+- `next` - Next.js Starter
 
 If no template is provided, an interactive selection will be shown.
 

@@ -8,7 +8,7 @@ export type Template = {
 export const templates: Template[] = [
   {
     name: 'Vue',
-    value: 'vueJs',
+    value: 'vue',
     repositoryLink: 'samuelreichor/query-api-craft-starter',
     branch: 'examples/vue',
   },
@@ -20,13 +20,13 @@ export const templates: Template[] = [
   },
   {
     name: 'React Vite',
-    value: 'reactJs',
+    value: 'react-vite',
     repositoryLink: 'samuelreichor/query-api-craft-starter',
     branch: 'examples/react-vite',
   },
   {
     name: 'Next.js',
-    value: 'nextJs',
+    value: 'next',
     repositoryLink: 'samuelreichor/query-api-craft-starter',
     branch: 'examples/next',
   },
