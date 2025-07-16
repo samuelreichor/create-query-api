@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.5
+
+### Patch Changes
+
+- 844c8e5: Remove .github folder after completed download
+
 ## 0.1.4
 
 ### Patch Changes
