@@ -82,6 +82,15 @@ const main = defineCommand({
         configContent = configContent.replace(/^name:.*$/m, `name: ${projectName}`);
         fs.writeFileSync(ddevConfigPath, configContent, 'utf8');
       }
+
+      // Set correct baseUrl in frontend/.env.example
+      // not needed in main .env.example because ddev does this for us 
+      const frontendEnvExamplePath = path.join(targetDir, 'frontend', '.env.example');
+      if (fs.existsSync(frontendEnvExamplePath)) {
+        let envContent = fs.readFileSync(frontendEnvExamplePath, 'utf8');
+        envContent = envContent.replace('https://query-api-craft-starter.ddev.site', `https://${projectName}.ddev.site`);
+        fs.writeFileSync(frontendEnvExamplePath, envContent, 'utf8');
+      }
     }
     s.stop(`Template ${selectedTemplate.name} downloaded successfully!`)
 
