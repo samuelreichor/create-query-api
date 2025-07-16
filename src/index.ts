@@ -91,6 +91,12 @@ const main = defineCommand({
         envContent = envContent.replace('https://query-api-craft-starter.ddev.site', `https://${projectName}.ddev.site`);
         fs.writeFileSync(frontendEnvExamplePath, envContent, 'utf8');
       }
+
+      // Delete the .github folder
+      const githubFolderPath = path.join(targetDir, '.github');
+      if (fs.existsSync(githubFolderPath)) {
+        fs.rmSync(githubFolderPath, { recursive: true, force: true });
+      }
     }
     s.stop(`Template ${selectedTemplate.name} downloaded successfully!`)
 
