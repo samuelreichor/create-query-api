@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.4
+
+### Patch Changes
+
+- 6e625cd: Fix wrong base url in frontend/.env.examples due to ddev project name
+
 ## 0.1.3
 
 ### Patch Changes
