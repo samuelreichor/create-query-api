@@ -22,6 +22,7 @@ Choose a template for the new project. Possible values are:
 - `nuxt` - Nuxt Starter
 - `react-vite` - React Vite Starter
 - `next` - Next.js Starter
+- `craft-only` - Only Craft CMS with no frontend
 
 If no template is provided, an interactive selection will be shown.
 

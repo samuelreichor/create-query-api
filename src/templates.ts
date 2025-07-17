@@ -30,4 +30,10 @@ export const templates: Template[] = [
     repositoryLink: 'samuelreichor/query-api-craft-starter',
     branch: 'examples/next',
   },
+  {
+    name: 'Craft CMS only',
+    value: 'craft-only',
+    repositoryLink: 'samuelreichor/query-api-craft-starter',
+    branch: 'main',
+  },
 ]
