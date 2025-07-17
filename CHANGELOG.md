@@ -1,5 +1,12 @@
 # create-query-api
 
+## 0.1.6
+
+### Patch Changes
+
+- 946ad1f: Change template values to be more descriptive
+- 1d89766: Add craft only template
+
 ## 0.1.5
 
 ### Patch Changes
