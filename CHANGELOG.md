@@ -1,5 +1,11 @@
 # create-query-api
 
+## 0.1.7
+
+### Patch Changes
+
+- 3359ab8: Fix project url in .env.example due to ddev behavior change
+
 ## 0.1.6
 
 ### Patch Changes
